@@ -1,11 +1,11 @@
 // Scene, camera, renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({antialias: true});
+const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setSize(window.innerWidth, 600);
 document.getElementById('galaxy').appendChild(renderer.domElement);
 
-// Controls para zoom e rotação
+// OrbitControls para zoom e rotação
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
@@ -15,7 +15,16 @@ controls.enablePan = true;
 let stars = [];
 let starObjects = {};
 
-// Carregar estrelas do JSON
+// Função para converter magnitude em cor
+function magnitudeToColor(mag) {
+  if(mag < 2) return 0xffffff;      // branco para mais brilhantes
+  if(mag < 5) return 0xffddaa;      // amarelo
+  if(mag < 8) return 0xffaa55;      // laranja
+  if(mag < 12) return 0xff7755;     // vermelho claro
+  return 0xff5555;                   // vermelho escuro para fracas
+}
+
+// Carregar estrelas
 fetch('data/stars.json')
   .then(res => res.json())
   .then(data => {
@@ -42,11 +51,11 @@ function populateDropdowns() {
   });
 }
 
-// Adicionar estrelas à cena
+// Adicionar estrelas à cena com cores
 function addStarsToScene() {
   stars.forEach(star => {
-    const geometry = new THREE.SphereGeometry(0.2, 12, 12);
-    const material = new THREE.MeshBasicMaterial({color: 0xffff00});
+    const geometry = new THREE.SphereGeometry(0.15, 10, 10);
+    const material = new THREE.MeshBasicMaterial({color: magnitudeToColor(star.magnitude)});
     const sphere = new THREE.Mesh(geometry, material);
     sphere.position.set(star.x, star.y, star.z);
     scene.add(sphere);
@@ -83,6 +92,11 @@ function animate() {
 animate();
 
 // Responsividade
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / 600;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, 600);
+});
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / 600;
   camera.updateProjectionMatrix();
