@@ -1,13 +1,7 @@
 [
-  {"name":"Sol","x":0,"y":0,"z":0,"magnitude":4.83},
-  {"name":"Alpha Centauri","x":-1.34,"y":3.84,"z":-0.45,"magnitude":4.38},
-  {"name":"Barnard's Star","x":1.83,"y":-5.97,"z":0.45,"magnitude":13.25},
-  {"name":"Wolf 359","x":-7.22,"y":2.33,"z":-1.12,"magnitude":13.54},
-  {"name":"Sirius","x":8.6,"y":-1.45,"z":0.33,"magnitude":1.46},
-  {"name":"Luyten 726-8","x":-3.1,"y":5.4,"z":-0.2,"magnitude":12.5},
-  {"name":"Ross 154","x":-2.7,"y":6.0,"z":0.5,"magnitude":10.44},
-  {"name":"Epsilon Eridani","x":3.5,"y":-4.1,"z":0.9,"magnitude":3.73},
-  {"name":"Procyon","x":7.2,"y":-2.2,"z":0.2,"magnitude":2.66},
-  {"name":"61 Cygni","x":-5.0,"y":3.3,"z":1.1,"magnitude":5.20}
-  // ...repita ou gere dados aleatórios até 100 estrelas
+  {"name": "Sol", "x":0, "y":0, "z":0},
+  {"name": "Alpha Centauri", "x":-1.34, "y":3.84, "z":-0.45},
+  {"name": "Barnard's Star", "x":1.83, "y":-5.97, "z":0.45},
+  {"name": "Wolf 359", "x":-7.22, "y":2.33, "z":-1.12},
+  {"name": "Sirius", "x":8.6, "y":-1.45, "z":0.33}
 ]
