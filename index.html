@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distância na Galáxia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Medidor de Distâncias na Galáxia</h1>
 
+  <div>
+    <label>Estrela 1:
+      <select id="star1"></select>
+    </label>
+    <label>Estrela 2:
+      <select id="star2"></select>
+    </label>
+    <button id="calcBtn">Calcular Distância</button>
+    <p id="result"></p>
+  </div>
+
+  <div id="galaxy"></div>
+
+  <!-- Three.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
